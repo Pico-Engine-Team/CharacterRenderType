@@ -2,18 +2,18 @@ package objects.character;
 
 // ============================================
 // PICO ENGINE - AnimateAtlasCharacter
-// Carrega o personagem usando FlxAnimate
-// (formato Adobe Animate exportado).
+// Loads the character using FlxAnimate
+// (Adobe Animate format exported).
+
 //
-// Estrutura de pasta esperada:
-//   images/<imagePath>/
-//     Animation.json     ← dados das animações
-//     spritemap1.json    ← atlas do spritesheet
-//     spritemap1.png     ← imagem do spritesheet
+// Expected folder structure:
+// images/<imagePath>/
+// Animation.json ← animation data
+// spritemap1.json ← spritesheet atlas
+// spritemap1.png ← spritesheet image
 //
-// Suporta múltiplos spritemaps:
-//   spritemap1.json, spritemap2.json, etc.
-// ============================================
+// Supports multiple spritemaps:
+// spritemap1.json, spritemap2.json, etc.
 
 #if flxanimate
 import flxanimate.FlxAnimate;
@@ -22,10 +22,10 @@ import flxanimate.FlxAnimate;
 class AnimateAtlasCharacter
 {
 	/**
-	 * Carrega o FlxAnimate atlas para o personagem.
-	 * Procura pelos arquivos Animation.json e spritemap*.json
-	 * dentro da pasta do personagem.
-	 */
+	* Loads the FlxAnimate atlas for the character.
+	* Searches for the Animation.json and spritemap*.json files
+	* inside the character's folder.
+	*/
 	public static function load(character:objects.Character):Void
 	{
 		#if flxanimate
@@ -57,9 +57,9 @@ class AnimateAtlasCharacter
 	}
 
 	/**
-	 * Verifica se a pasta do personagem contém os arquivos
-	 * necessários para o AnimateAtlas (Animation.json + spritemap1.*).
-	 */
+	* Checks if the character folder contains the files
+	* required for AnimateAtlas (Animation.json + spritemap1.*).
+	*/
 	public static function exists(imagePath:String):Bool
 	{
 		var animJson:String = Paths.getPath('images/$imagePath/Animation.json', TEXT);
@@ -70,17 +70,17 @@ class AnimateAtlasCharacter
 	}
 
 	/**
-	 * Retorna o caminho do Animation.json do personagem.
-	 */
+	* Returns the path to the character's Animation.json file.
+	*/
 	public static function getAnimationJsonPath(imagePath:String):String
 	{
 		return Paths.getPath('images/$imagePath/Animation.json', TEXT);
 	}
 
 	/**
-	 * Retorna o caminho do spritemap principal.
-	 * Procura de spritemap1 até spritemap9.
-	 */
+	* Returns the path of the main spritemap.
+	* Searches from spritemap1 to spritemap9.
+	*/
 	public static function getSpritemapPath(imagePath:String, ?index:Int = 1):String
 	{
 		return Paths.getPath('images/$imagePath/spritemap$index.json', TEXT);
