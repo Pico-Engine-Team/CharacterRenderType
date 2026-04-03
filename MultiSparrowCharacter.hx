@@ -1,22 +1,15 @@
 package objects.character;
 
-// ============================================
-// PICO ENGINE - MultiSparrowCharacter
-// Carrega o personagem usando múltiplos
-// Sparrow Atlas combinados em um só.
-// Imagens separadas por vírgula no campo
-// "image" do JSON: "bf,bf-dead,bf-extra"
-// ============================================
-
 import flixel.graphics.frames.FlxAtlasFrames;
 
 class MultiSparrowCharacter
 {
 	/**
-	 * Carrega múltiplos spritesheets Sparrow e os combina.
-	 * Útil para personagens com muitas animações que não cabem
-	 * em um único spritesheet.
-	 */
+	* Loads multiple Sparrow spritesheets and combines them.
+	* Useful for characters with many animations that don't fit
+	* in a single spritesheet.
+	*/
+	
 	public static function load(character:objects.Character):Void
 	{
 		var imagePath:String = character.imageFile;
@@ -35,16 +28,16 @@ class MultiSparrowCharacter
 	}
 
 	/**
-	 * Verifica se é um MultiAtlas (mais de uma imagem separada por vírgula).
-	 */
+	* Checks if it is a MultiAtlas (more than one image separated by commas).
+	*/
 	public static function isMulti(imagePath:String):Bool
 	{
 		return imagePath.contains(',');
 	}
 
 	/**
-	 * Verifica se todos os spritesheets existem.
-	 */
+	* Checks if all spritesheets exist.
+	*/
 	public static function exists(imagePath:String):Bool
 	{
 		var parts:Array<String> = imagePath.split(',').map(s -> s.trim());
