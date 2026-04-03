@@ -1,20 +1,14 @@
 package objects.character;
 
-// ============================================
-// PICO ENGINE - SparrowCharacter
-// Carrega o personagem usando Sparrow Atlas
-// (.png + .xml) — formato padrão Psych Engine
-// ============================================
-
 import flixel.graphics.frames.FlxAtlasFrames;
 
 class SparrowCharacter
 {
 	/**
-	 * Carrega o atlas Sparrow (.png + .xml) para o personagem.
-	 * Suporta múltiplos spritesheets separados por vírgula (MultiAtlas).
-	 * Ex: "characters/bf,characters/bf2"
-	 */
+	* Loads the Sparrow atlas (.png + .xml) for the character.
+	* Supports multiple spritesheets separated by commas (MultiAtlas).
+	* Ex: "characters/bf,characters/bf2"
+	*/
 	public static function load(character:objects.Character):Void
 	{
 		var imagePath:String = character.imageFile;
